@@ -2,32 +2,72 @@
 # Author: Lily Zajczenko
 # Date: 02/09/26
 # Description: This program lets the user describe the specific attributes of the type of snack they want, and, with that intel, reccomends them a specific snack.
+# NEED A FOR AN WHILE LOOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-calorie_intake = []
 
-def snack_rec(calories, flavor):
-    calories = print(input("Would you like your snack to have high or low calories?: "))
-    calorie_intake(list)
-    flavor = print(input("Sweet or savory?: "))
+
+sweetsnack = ["chocolate rice cakes", "oreos"] #list of sweek snacks
+calorie_intake_sweet = [60, 270] #sweet snacks corresponding calorie counts
+
+savorysnack = ["peanuts","pretzels","oreos","string cheese", "blue heat takis", "spicy snack wrap", "bagel minis"] #list of savory snacks
+calorie_intake_savory = [160, 110, 60, 150, 380] # savory snacks corresponding calorie counts
+#-----------------------------------------------------------------
+# SNACK LIST W/ SERVING AND CAL COUNT
+# chocolate rice cakes = 60 calories for one cake serving
+# peanuts= 160 calories per ounce serving
+# pretzels = 110 for 1 ouce serving
+# oreos = 270 cal for 5 oreo serving
+# string cheese = 60 cal for 1 cheese serving
+# blue heat takis = 150 cal for 1 ounce serving
+# spicy snack wrap = 380 cal per wrap serving
+#--------------------------------------------------------
+total_snacks = []
+
+
+def snack_rec(flavor):
+    choice = input("Would you like a sweet or savory snack?: ")
+    flavor = choice
     if flavor == "sweet":
-        print(input("Do you like chocolate?: "))
-        if input == "yes" and calories == "high":
-            print("You should try __!")
-        elif input == "yes" and calories == "low":
-            print("You should try __!")
-        while input == "no":
-            continue
-    if flavor == "savory":
-        print(input("Do you like spicy food?: "))
-        if input == "yes" and calories == "high":
-            print("You should try __!")
-        elif input == "yes" and calories == "low":
-            print("You should try __!")
+        chocolate = input("Do you like chocolate?: ")
+        if chocolate == "yes":
+            calories = input("Would you like your snack to have high or low calories?: ")
+            if calories == "high":
+                print("You should try oreos!")
+                satisfied = input("Are you satisfied with this suggestion?: ")
+                while satisfied == "no":
+                    more = input("Do you want another snack?: ")
+                    if more == "yes":
+                        return choice
+                    else:
+                        break
+                while satisfied == "yes":
+                    input("Do you want another snack?: ")
+                    
+            elif calories == "low":
+                print("You should try a chocolate rice cake!")
+                input("Are you satisfied with this suggestion?: ")
+                while input == "no":
+                    break
+        else:
+            print("If you don't like chocolate, you should try gummy bears!")
+        
+        
+    elif flavor == "savory":
+        spicy = input("Do you like spicy food?: ")
+        if spicy == "yes":
+            calories = input("Would you like your snack to have high or low calories?: ")
+            if calories == "high":
+                print("You should try a McDonald's spicy snack wrap!")
+            elif calories == "low":
+                print("You should try blue heat takis!")
+    else:
+        print("Invalid input. Please try again.")
     
-print(snack_rec(calorie_intake))
-
-
-                
 
 
 
+print(snack_rec("sweet"))
+
+def total ():
+    for snack in total_snacks:
+        print(snack)
